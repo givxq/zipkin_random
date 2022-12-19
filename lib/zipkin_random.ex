@@ -13,6 +13,14 @@ defmodule ZipkinRandom do
 
   """
   def hello do
+    # Here we are starting out new span
+    OpenTelemetry.Tracer.start_span("span_name_1")
+
+    # Mimic that some work is happening
+    Process.sleep(100)
+    # finish the span just before returning tthe response
+    OpenTelemetry.Tracer.end_span()
+
     :world
   end
 end
