@@ -7,6 +7,10 @@ defmodule ZipkinRandom.Application do
 
   @impl true
   def start(_type, _args) do
+    # register your tracer so that opentelemtry knows that
+    # it needs to start tracing the events
+    _ = OpenTelemetry.register_application_tracer(:zipkin_random)
+
     children = [
       # Starts a worker by calling: ZipkinRandom.Worker.start_link(arg)
       # {ZipkinRandom.Worker, arg}
