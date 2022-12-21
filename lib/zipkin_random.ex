@@ -3,6 +3,8 @@ defmodule ZipkinRandom do
   Documentation for `ZipkinRandom`.
   """
 
+  require OpenTelemetry.Tracer
+
   @doc """
   Hello world.
 
